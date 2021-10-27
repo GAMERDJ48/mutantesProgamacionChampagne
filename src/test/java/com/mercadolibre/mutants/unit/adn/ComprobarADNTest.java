@@ -15,13 +15,6 @@ public class ComprobarADNTest {
     public MutantDetector comprobarADN = new MutantDetector();
 
 
-
-
-
-
-
-    
-
     @Test
     public void RecorrerDiagonal() {
         List<String> dna = new ArrayList<>();
