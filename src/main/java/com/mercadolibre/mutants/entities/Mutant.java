@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @ToString
 public class Mutant {
-
+    //Entidad Mutante
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
