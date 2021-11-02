@@ -1,15 +1,14 @@
 package com.mercadolibre.mutants.detector;
 
-import com.mercadolibre.mutants.entities.Mutant;
-import com.mercadolibre.mutants.excepcions.ADNException;
+import com.mercadolibre.mutants.exceptions.DNAException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 //A esta clase se le asigno la responsabilidad de analizar si el sujeto es mutante.
 public class MutantDetector {
 
-    public boolean mutantDetector(List<String> ADN) throws ADNException{
+    public boolean mutantDetector(List<String> ADN) throws DNAException {
+
         boolean result;
         /*
         Llamo a validatorADN para verificar que la matriz sea cuadrada y que no presente caracteres invalidos
@@ -33,20 +32,20 @@ public class MutantDetector {
 
         if (contador >= 2) {
             result = true;
-        }else{
+        } else {
             result = false;
         }
         return result;
     }
 
-    private void validatorADN(List<String> adn) throws ADNException {
-        for(int i=0; i<adn.size(); i++){
-            if(adn.get(i).length()!=adn.size()){
-                throw new ADNException("El arreglo no es cuadrado");
+    private void validatorADN(List<String> adn) throws DNAException {
+        for (int i = 0; i < adn.size(); i++) {
+            if (adn.get(i).length() != adn.size()) {
+                throw new DNAException("El arreglo no es cuadrado");
             }
-            for(int j=0; j<adn.get(0).length(); j++){
-                if(!(adn.get(i).charAt(j)=='A' || adn.get(i).charAt(j)=='G' || adn.get(i).charAt(j)=='C' || adn.get(i).charAt(j)=='T')){
-                    throw new ADNException("El arreglo no presenta caracteres validos");
+            for (int j = 0; j < adn.get(0).length(); j++) {
+                if (!(adn.get(i).charAt(j) == 'A' || adn.get(i).charAt(j) == 'G' || adn.get(i).charAt(j) == 'C' || adn.get(i).charAt(j) == 'T')) {
+                    throw new DNAException("El arreglo no presenta caracteres validos");
                 }
             }
         }

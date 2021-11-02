@@ -1,7 +1,7 @@
-package com.mercadolibre.mutants.excepcions;
+package com.mercadolibre.mutants.exceptions;
 
-public class ADNException extends Exception{
-    public ADNException(String mensaje){
-        super(mensaje);
+public class DNAException extends Exception {
+    public DNAException(String msg) {
+        super(msg);
     }
 }

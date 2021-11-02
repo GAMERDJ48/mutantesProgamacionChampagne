@@ -12,6 +12,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/mutant")
 public class MutantController {
+
     private MutantService mutantService;
 
     public MutantController(MutantService mutantService) {

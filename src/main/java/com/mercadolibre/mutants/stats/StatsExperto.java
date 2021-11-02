@@ -9,7 +9,7 @@ public class StatsExperto {
         Stats stats = new Stats();
         double countHuman = mutantList.size();
         double countMutant = 0.0;
-        double mutantRatio = 0.0;
+        double mutantRatio;
         for (Mutant m : mutantList) {
             if (m.getIsMutant()) {
                 countMutant++;
