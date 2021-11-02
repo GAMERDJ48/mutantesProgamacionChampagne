@@ -19,24 +19,22 @@ public class MutantService {
         this.mutantRepository = mutantRepository;
     }
 
+    //Servicio principal que se encarga de recibir un mutante y guardarlo en la base de datos con su respectivo resultado.
     @Transactional
     public boolean isMutant(Mutant mutant) throws Exception {
         try {
             MutantDetector det = new MutantDetector();
-            int contador = 0; // empezamos a recorrer la matriz
-            List<String> ADN = mutant.getDna();
-            contador = det.RecorrerDiagonal(ADN, contador);
-            contador = det.RecorrerVertical(ADN, contador);
-            contador = det.RecorrerHorizontal(ADN, contador);
-            contador = det.RecorrerContraDiagonal(ADN, contador);
-            if (contador >= 2) {
-                mutant.setIsMutant(true);
-                mutant.setDnaPersist(mutant.getDna().toString());
-                mutant = mutantRepository.save(mutant);
-                return mutant.getIsMutant();
-            }
-            mutant.setIsMutant(false);
+
+            //LLamo al MutantDetector que me dice si es mutante o no
+            boolean result = det.mutantDetector(mutant.getDna());
+
+            //Seteo el resultado en la entidad Mutante
+            mutant.setIsMutant(result);
+
+            //Convierto la lista de cadenas en una sola cadena para luego setearla en otra variable,
+            //de esa forma guardamos una cadena en la base de datos y no una lista
             mutant.setDnaPersist(mutant.getDna().toString());
+
             mutant = mutantRepository.save(mutant);
             return mutant.getIsMutant();
         } catch (Exception e) {
@@ -44,6 +42,7 @@ public class MutantService {
         }
     }
 
+    //Metodo que retorna las estadisticas de las consultas
     public Stats statsService() throws Exception {
         try {
             List<Mutant> mutantList = mutantRepository.findAll();
