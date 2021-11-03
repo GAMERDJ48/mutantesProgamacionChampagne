@@ -34,7 +34,7 @@ public class MutantController {
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("");
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\" " + e.getMessage() + "\"}");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
 
@@ -44,7 +44,7 @@ public class MutantController {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(mutantService.statsService());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\" " + e.getMessage() + "\"}");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
 }
