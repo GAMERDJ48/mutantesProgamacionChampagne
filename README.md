@@ -77,3 +77,4 @@ GET https://mutantsprogramacionchampagne.herokuapp.com/api/v1/mutant/stats
 ## Cobertura de código
 
 Se cubre 86% del código
+![Code coverage](/files/coverage.jpg)
