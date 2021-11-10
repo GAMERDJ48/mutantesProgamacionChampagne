@@ -6,7 +6,7 @@ Por Programación Champagne
 <li>Martín Carrión</li>
 <li>Martiniano Juarroz</li>
 <li>Lucas López</li>
-<li>Gerónimo Ortíz</li>
+<li>Gerónimo Ortiz</li>
 <li>Alvaro Pereyra</li>
 <li>Franco Ruiz</li>
 <li>Nicolás Saurina</li>
