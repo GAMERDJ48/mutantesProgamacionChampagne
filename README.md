@@ -53,7 +53,8 @@ Ejemplo de body de la Request:
 <ul>
 <li>200: El adn ingresado es de un mutante</li>
 <li>403: El adn ingresado no es de un mutante</li>
-<li>400: Hubo un error a la hora de procesar la petición</li>
+<li>400: "error":"El arreglo no es cuadrado"</li>
+<li>400: "error":"El arreglo no presenta caracteres validos"</li>
 </ul>
 
 <hr />
