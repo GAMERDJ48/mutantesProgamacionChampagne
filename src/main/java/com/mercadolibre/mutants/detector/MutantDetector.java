@@ -99,25 +99,18 @@ public class MutantDetector {
     }
 
     public boolean RecorrerDiagonal(List<String> adn, int i, int j) {
-        boolean resultado = (CompararLetras(adn.get(i).charAt(j), adn.get(i + 1).charAt(j + 1), adn.get(i + 2).charAt(j + 2)
-                , adn.get(i + 3).charAt(j + 3))) ?  true :  false;
-        return resultado;
+        return  (CompararLetras(adn.get(i).charAt(j), adn.get(i + 1).charAt(j + 1), adn.get(i + 2).charAt(j + 2)
+                , adn.get(i + 3).charAt(j + 3)));
     }
 
     public boolean RecorrerVertical(List<String> adn, int i, int j) {
-        if (CompararLetras(adn.get(i).charAt(j), adn.get(i + 1).charAt(j), adn.get(i + 2).charAt(j)
-                , adn.get(i + 3).charAt(j))) {
-            return true;
-        }
-        return false;
+        return (CompararLetras(adn.get(i).charAt(j), adn.get(i + 1).charAt(j), adn.get(i + 2).charAt(j)
+                , adn.get(i + 3).charAt(j)));
     }
 
     public boolean RecorrerHorizontal(List<String> adn, int i, int j) {
-        if (CompararLetras(adn.get(i).charAt(j), adn.get(i).charAt(j + 1), adn.get(i).charAt(j + 2)
-                , adn.get(i).charAt(j + 3))) {
-            return true;
-        }
-        return false;
+        return (CompararLetras(adn.get(i).charAt(j), adn.get(i).charAt(j + 1), adn.get(i).charAt(j + 2)
+                , adn.get(i).charAt(j + 3)));
     }
 
 }
