@@ -5,6 +5,7 @@ import com.mercadolibre.mutants.entities.Mutant;
 import com.mercadolibre.mutants.repositories.MutantRepository;
 import com.mercadolibre.mutants.stats.Stats;
 import com.mercadolibre.mutants.stats.StatsExperto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Service
 public class MutantService {
+    @Autowired
     private MutantRepository mutantRepository;
 
     public MutantService(MutantRepository mutantRepository) {
@@ -45,10 +47,10 @@ public class MutantService {
     //Metodo que retorna las estadisticas de las consultas
     public Stats statsService() throws Exception {
         try {
-            List<Mutant> mutantList = mutantRepository.findAll();
-            Stats stats = StatsExperto.statsService(mutantList);
+            Stats stats = new StatsExperto(mutantRepository).statsService();
             return stats;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new Exception(e.getMessage());
         }
     }

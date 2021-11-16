@@ -1,6 +1,7 @@
 package com.mercadolibre.mutants.unit.adn;
 
 import com.mercadolibre.mutants.detector.MutantDetector;
+import com.mercadolibre.mutants.exceptions.DNAException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,7 +15,7 @@ public class ComprobarADNTest {
 
     public MutantDetector comprobarADN = new MutantDetector();
 
-
+    /*
     @Test
     public void RecorrerDiagonal() {
         List<String> dna = new ArrayList<>();
@@ -184,7 +185,28 @@ public class ComprobarADNTest {
         assertEquals(resultado, 0);
     }
 
+    */
 
+    @Test
+    public void RecorrerDiagonalSinCoincidencia() {
+        List<String> dna = new ArrayList<>();
+        dna.add("TTGCGA");
+        dna.add("TAGTCC");
+        dna.add("TTCTGT");
+        dna.add("TGAAGG");
+        dna.add("CCCCTA");
+        dna.add("TCACTG");
+
+        boolean resultado=true;
+        try {
+            resultado = comprobarADN.mutantDetector(dna);
+            System.out.println(resultado);
+        } catch (DNAException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
 
 }
