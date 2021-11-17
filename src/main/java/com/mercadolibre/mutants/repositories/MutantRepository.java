@@ -7,9 +7,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MutantRepository extends JpaRepository<Mutant, Long> {
-    @Query(value = "SELECT (COUNT(*)) FROM mutants m WHERE m.is_mutant IS TRUE", nativeQuery = true)
-    double getCountMutants();
 
-    @Query(value = "SELECT (COUNT(*)) FROM mutants", nativeQuery = true)
-    double getCountHumans();
+    @Query("SELECT count (m) FROM Mutant m WHERE m.isMutant = true")
+    double searchMutants();
+
+    @Query("SELECT count (m) FROM Mutant m")
+    double searchHumans();
 }

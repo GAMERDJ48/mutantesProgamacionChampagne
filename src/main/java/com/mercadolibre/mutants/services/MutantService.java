@@ -4,17 +4,14 @@ import com.mercadolibre.mutants.detector.MutantDetector;
 import com.mercadolibre.mutants.entities.Mutant;
 import com.mercadolibre.mutants.repositories.MutantRepository;
 import com.mercadolibre.mutants.stats.Stats;
-import com.mercadolibre.mutants.stats.StatsExperto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Arrays;
-import java.util.List;
 
 @Service
 public class MutantService {
-    @Autowired
+
     private MutantRepository mutantRepository;
 
     public MutantService(MutantRepository mutantRepository) {
@@ -47,7 +44,18 @@ public class MutantService {
     //Metodo que retorna las estadisticas de las consultas
     public Stats statsService() throws Exception {
         try {
-            Stats stats = new StatsExperto(mutantRepository).statsService();
+            Stats stats = new Stats();
+            double countHuman = this.mutantRepository.searchHumans();
+            double countMutant = this.mutantRepository.searchMutants();
+            double mutantRatio;
+            if (countHuman != 0) {
+                mutantRatio = (countMutant / countHuman);
+            } else {
+                mutantRatio = 0;
+            }
+            stats.setCountHuman(countHuman);
+            stats.setCountMutantDna(countMutant);
+            stats.setMutantRatio(mutantRatio);
             return stats;
         } catch (Exception e) {
             e.printStackTrace();

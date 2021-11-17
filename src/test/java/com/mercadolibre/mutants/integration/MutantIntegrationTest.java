@@ -18,8 +18,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class MutantIntegrationTest {
 
-    @Autowired
-    private MutantService mutantService;
 
     @Autowired
     private MockMvc mockMvc;
@@ -41,5 +39,5 @@ public class MutantIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isForbidden());
     }
-    
+
 }

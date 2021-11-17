@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "mutants")
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Mutant {
 

@@ -6,7 +6,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 public class Stats {
-    private double count_mutant_dna;
-    private double count_human_dna;
+    private double countMutantDna;
+    private double countHuman;
     private double mutantRatio;
 }
